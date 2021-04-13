@@ -1,0 +1,17 @@
+<td>{{formationId}}</td>
+<td>{{formationName}}</td>
+
+<td>
+  <button type="button"
+          class="btn btn-edit m-2">
+    <a class="text-white" [routerLink]="editRoute">Modifier</a>
+  </button>
+</td>
+
+<td>
+  <button type="button"
+          class="btn btn-danger m-2"
+          (click)="onDeleteFormation()">
+    Supprimer
+  </button>
+</td>

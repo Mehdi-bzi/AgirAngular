@@ -1,0 +1,34 @@
+<div class="container text-center">
+
+    <button type="button"
+            class="m-2 p-4 btn-add">
+      <a routerLink="/themes/new" class="card-link text-white">
+        Ajouter un nouveau thème
+      </a>
+    </button>
+  
+    <table class="table m-5">
+      <thead class="thead thead-agir">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nom du thème</th>
+        <th scope="col">Modifier le thème</th>
+        <th scope="col">Suppression</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr app-table-row-theme *ngFor="let theme of themes"
+          [themeId]="theme.id"
+          [themeName]="theme.name"
+          >
+      </tr>
+      </tbody>
+      <tr class="tr-footer">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+    </table>
+  
+  </div>

@@ -1,0 +1,35 @@
+<p></p>
+<p class="h1 border solid mb-4 ml-3 mr-5">
+    Sélection des formations
+</p>
+<div class="container mb-5 mt-3">
+    <div class="row border rounded">
+      <div class="col-sm-5 col-md-6 border right">
+        <form [formGroup]="homeThemeForm">
+            <div class="p-3">   
+                <label *ngIf="this.homeThemeForm.value.theme" >Modèle</label>
+                    <select class="form-control"
+                            formControlName="theme"
+                            (change)="displayFormation(homeThemeForm.value.theme)"
+                            >
+                        <option value="" selected>Choisir</option>
+                        <!-- <option value="">{{themes[0]}}</option> -->
+                        <option *ngFor="let t of themes" [value]="t.id"
+                        >
+                            {{t.name}}
+                        </option>
+                    </select>
+            </div>
+        </form>
+        
+
+        <p id="formationName" *ngFor="let for of formationsToDisplay">
+            <span (click)="displayContentFormation(for)" >{{for.name}}</span> 
+         </p>        
+      </div>
+      <div id="secondColumn" class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">
+          <img class="rounded mx-auto d-block p-3" width="300" height="300" src="../../../assets/css/img/HomePage_AgirGP_small_detouré.png" alt="">
+      </div>
+    </div>
+
+</div>

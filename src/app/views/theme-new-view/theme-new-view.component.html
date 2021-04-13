@@ -1,0 +1,95 @@
+
+<div class="wrapper">
+    <div class="section">
+        <div class="container text-center">
+
+            <h4 class="title">AJOUT D'UN NOUVEAU THEME</h4>
+
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center shadow">
+
+                    <form class="mt-5" [formGroup]="newThemeForm" (ngSubmit)="onSubmitNewThemeForm()">
+
+                        <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
+
+                        <label>Nom du nouveau thème</label>
+
+                        <div class="alert alert-danger"
+                             *ngIf="(newThemeForm.controls.name.dirty || newThemeForm.controls.name.touched)
+                && newThemeForm.controls.name.invalid
+                && newThemeForm.controls.name.errors.required">
+                            Le nom est obligatoire.
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="nc-icon nc-alert-circle-i"></i></span>
+                            </div>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Nom*"
+                                   formControlName="name">
+                        </div>
+
+
+                        <label>Description</label>
+
+                        <div class="alert alert-danger"
+                             *ngIf="(newThemeForm.controls.description.dirty || newThemeForm.controls.description.touched)
+                && newThemeForm.controls.description.invalid
+                && newThemeForm.controls.description.errors.required">
+                            La description est obligatoire.
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="nc-icon nc-alert-circle-i"></i></span>
+                            </div>
+
+                            <textarea 
+                                   maxlength=500
+                                   class="form-control"
+                                   placeholder="Description*"
+                                   formControlName="description">
+                            </textarea>       
+                        </div>
+
+
+                        <!-- <label>Ajouter des formations</label>
+                        <div *ngFor="let f of formations; let i = index" formArrayName="formation">
+                            <input type="checkbox" [formControlName]="i" [value]="f.name">
+                            <span>{{f.name}}</span>
+                          </div> -->
+
+
+
+
+
+                        <!-- <div class="form-check form-check-inline" formArrayName="formation">
+                            <div *ngFor="let f of formationsToDisplay; let i = index"></div>
+                            <input 
+                            type="checkbox"
+                            [formControlName]="i"
+                            *ngFor="let f of formationsToDisplay" 
+                            [value]="'/api/formations/'+f.id" 
+                            [id]="i">
+                            <label class="form-check-label" for="inlineCheckbox1">{{f.name}}</label>
+                        </div>                        -->
+
+                        <button class="btn btn-primary btn-block btn-round mt-4"
+                                [disabled]="newThemeForm.invalid">Ajouter
+                        </button>
+
+                    </form>
+
+                    <div class="forgot mt-3">
+                        <a routerLink="/" class="btn btn-secondary">Revenir à l'accueil</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

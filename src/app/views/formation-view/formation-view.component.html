@@ -1,0 +1,41 @@
+<div class="container text-center">
+
+    <button type="button"
+            class="m-2 p-4 btn-add">
+      <a routerLink="/formations/new" class="card-link text-white">
+        Ajouter une nouvelle formation
+      </a>
+    </button>
+  
+    <table class="table m-5">
+      <thead class="thead thead-agir">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nom de la formation</th>
+        <th scope="col">Modifier les détails de la formation</th>
+        <th scope="col">Suppression</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr app-table-row-formation *ngFor="let f of formations"
+          [formationId]="f.id"
+          [formationName]="f.name"
+          >
+      </tr>
+      </tbody>
+      <tr class="tr-footer">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+    </table>
+  
+  </div>
+
+
+<ul>
+  <li *ngFor="let item of formations | paginate: { itemsPerPage: 10, currentPage: p }"> 
+    mettre quelque chose </li>
+</ul>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

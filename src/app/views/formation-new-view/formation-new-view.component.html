@@ -1,0 +1,130 @@
+
+<div class="wrapper">
+    <div class="section">
+        <div class="container text-center">
+
+            <h4 class="title">AJOUT D'UNE NOUVELLE FORMATION</h4>
+
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center shadow">
+
+                    <form class="mt-5" [formGroup]="newFormationForm" (ngSubmit)="onSubmitNewFormationForm()">
+
+                        <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
+
+                        <label>Nom du nouveau thème</label>
+
+                        <div class="alert alert-danger"
+                             *ngIf="(newFormationForm.controls.name.dirty || newFormationForm.controls.name.touched)
+                && newFormationForm.controls.name.invalid
+                && newFormationForm.controls.name.errors.required">
+                            Le nom est obligatoire.
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="nc-icon nc-alert-circle-i"></i></span>
+                            </div>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Nom*"
+                                   formControlName="name">
+                        </div>
+
+
+                        <label>Description</label>
+
+                        <div class="alert alert-danger"
+                             *ngIf="(newFormationForm.controls.description.dirty || newFormationForm.controls.description.touched)
+                && newFormationForm.controls.description.invalid
+                && newFormationForm.controls.description.errors.required">
+                            La description est obligatoire.
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="nc-icon nc-alert-circle-i"></i></span>
+                            </div>
+
+                            <input type="text-area"
+                                   class="form-control"
+                                   placeholder="Description*"
+                                   formControlName="description">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="text-left">
+                                <label>Prix : </label>
+                                <input type="number"
+                                       class="form-control"
+                                       placeholder="Prix"
+                                       formControlName="price"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="text-left">
+                                <label>Durée de la formation : </label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Durée"
+                                       formControlName="duration"/>
+                            </div>
+                        </div>
+
+
+                        <label>Rattacher à un thème : </label>
+                        <select class="form-control"
+                        formControlName="theme"
+                        >
+                            <option value="" selected >Choisir</option>
+                            <option *ngFor="let theme of themes" [value]="'/api/themes/'+theme.id">
+                                <!-- {{"/api/brands/"+b.id}} -->
+                                {{theme.name}}
+                            </option>
+                        </select>
+
+
+                        <!-- <div class="element">
+                            <label class="field-label">Formations</label>
+                            <div class="flex-container">
+                              <div *ngFor="let f of formationsToDisplay; let i=index;"
+                                class="flex-container  align-center multi-checkbox">
+                                <input type="checkbox" [formControlName]="formation" (change)="getSelectedHobbies(hobby, myhobbies[i].name);">
+                                {{f.name}}
+                              </div>
+                            </div>
+                          </div> -->
+
+
+
+
+                        <!-- <div class="form-check form-check-inline" formArrayName="formation">
+                            <div *ngFor="let f of formationsToDisplay; let i = index"></div>
+                            <input 
+                            type="checkbox"
+                            [formControlName]="i"
+                            *ngFor="let f of formationsToDisplay" 
+                            [value]="'/api/formations/'+f.id" 
+                            [id]="i">
+                            <label class="form-check-label" for="inlineCheckbox1">{{f.name}}</label>
+                        </div>                        -->
+
+                        <button class="btn btn-primary btn-block btn-round mt-4"
+                                [disabled]="newFormationForm.invalid">Ajouter
+                        </button>
+
+                    </form>
+
+                    <div class="forgot mt-3">
+                        <a routerLink="/" class="btn btn-secondary">Revenir à l'accueil</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
