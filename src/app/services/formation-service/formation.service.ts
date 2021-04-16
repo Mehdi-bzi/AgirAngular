@@ -40,4 +40,19 @@ export class FormationService {
 
   }
 
+  updateFormation(idForm, formationToAdd: any): Observable<any>{
+    const headers = { 'content-type': 'application/json'}
+    return this.httpClient.put(AUTH_API+'api/formations/'+idForm,formationToAdd, {'headers': headers})
+  }
+
+  getSingleFormation(formation){
+    return this.httpClient.get(AUTH_API+'api/formations/'+formation)
+                          .subscribe(
+                            res=>{
+                              this.formations = res;
+                              this.formationsSubject.next(this.formations);
+                            }
+                          )
+  }
+
 }

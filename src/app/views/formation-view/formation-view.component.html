@@ -17,7 +17,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr app-table-row-formation *ngFor="let f of formations"
+      <tr app-table-row-formation *ngFor="let f of formations | paginate: { itemsPerPage: 10, currentPage: p}"
           [formationId]="f.id"
           [formationName]="f.name"
           >
@@ -34,8 +34,26 @@
   </div>
 
 
-<ul>
+<!-- <ul>
   <li *ngFor="let item of formations | paginate: { itemsPerPage: 10, currentPage: p }"> 
     mettre quelque chose </li>
-</ul>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</ul> -->
+
+<div class="pages">
+  <pagination-controls
+    class="my-pagination" 
+    (pageChange)="p = $event"
+    responsive="true"
+    previousLabel="Page précédente"
+    nextLabel="Page suivante"
+  >
+</pagination-controls>
+</div>
+
+<div class="mb-5"> - </div>
+<style>
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: #273781;
+  }
+
+</style>

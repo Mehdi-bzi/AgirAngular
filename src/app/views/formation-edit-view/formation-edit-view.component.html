@@ -1,1 +1,111 @@
-<p>formation-edit-view works!</p>
+
+<div class="wrapper">
+    <div class="section">
+        <div class="container text-center mt-4">
+
+            <h4 class="col-4 m-auto title">EDITION FORMATION : {{formation.name}}</h4>
+
+            <div class="row mb-5">
+                <div class="col-md-6 ml-auto mr-auto text-center shadow">
+
+                    <form class="mt-5" [formGroup]="editFormationForm" (ngSubmit)="onSubmitEditFormationForm()">
+
+                        <div *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</div>
+
+                        <label>Nom du nouveau thème</label>
+
+                        <div class="alert alert-danger"
+                             *ngIf="(editFormationForm.controls.name.dirty || editFormationForm.controls.name.touched)
+                && editFormationForm.controls.name.invalid
+                && editFormationForm.controls.name.errors.required">
+                            Le nom est obligatoire.
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="nc-icon nc-alert-circle-i"></i></span>
+                            </div>
+
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Nom*"
+                                   formControlName="name"
+                                   [(ngModel)]="formation.name">
+                        </div>
+
+
+                        <label>Description</label>
+
+                        <div class="alert alert-danger"
+                             *ngIf="(editFormationForm.controls.description.dirty || editFormationForm.controls.description.touched)
+                && editFormationForm.controls.description.invalid
+                && editFormationForm.controls.description.errors.required">
+                            La description est obligatoire.
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="nc-icon nc-alert-circle-i"></i></span>
+                            </div>
+
+                            <textarea type="text-area"
+                                   class="form-control"
+                                   placeholder="Description*"
+                                   formControlName="description"
+                                   [(ngModel)]="formation.description">
+                            </textarea>       
+                        </div>
+
+                        <div class="form-group">
+                            <div class="text-left">
+                                <label>Prix : </label>
+                                <input type="number"
+                                       class="form-control"
+                                       placeholder="Prix"
+                                       formControlName="price"
+                                       [(ngModel)]="formation.price"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="text-left">
+                                <label>Durée de la formation : </label>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Durée"
+                                       formControlName="duration"
+                                       [(ngModel)]="formation.duration"/>
+                            </div>
+                        </div>
+
+                           
+                        <label>Rattacher à un thème : </label>
+                        <select class="form-control"
+                                formControlName="theme"
+                        >
+                            <option value="" selected>Choisir</option>
+                            <option *ngFor="let theme of themes" [value]="'/api/themes/'+theme.id">
+                                <!-- {{"/api/brands/"+b.id}} -->
+                                <!-- {{"/api/themes/"+theme.id}} -->
+                                {{theme.name}}
+                            </option>
+                        </select>
+
+                        <button class="btn btn-primary btn-block btn-round mt-4"
+                                [disabled]="editFormationForm.invalid">Modifier
+                        </button>
+
+                    </form>
+
+                    <div class="forgot mt-3">
+                        <a routerLink="/" class="btn btn-secondary">Revenir à l'accueil</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

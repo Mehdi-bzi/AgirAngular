@@ -76,11 +76,12 @@
 
                         <label>Rattacher à un thème : </label>
                         <select class="form-control"
-                        formControlName="theme"
+                                formControlName="theme"
                         >
                             <option value="" selected >Choisir</option>
                             <option *ngFor="let theme of themes" [value]="'/api/themes/'+theme.id">
                                 <!-- {{"/api/brands/"+b.id}} -->
+                                <!-- {{"/api/themes/"+theme.id}} -->
                                 {{theme.name}}
                             </option>
                         </select>

@@ -1,12 +1,19 @@
-<p></p>
 <header class="main-header d-flex border">
 	<div class="container d-flex">
 		<h1 class="mh-logo">
-			<img class="img-fluid p-2" src="../../../assets/css/img/AgirLogoMiniCatalogue645.png" width="645" height="109" alt="Flexbox.ninja">
+			<a routerLink="">
+				<img class="img-fluid p-2" src="../../../assets/css/img/AgirLogoMiniCatalogue645.png" width="645" height="109" alt="Flexbox.ninja">
+			</a>
 		</h1>
 	</div>
-	<span id="loggin" class="text-white font-weight-bold" routerLink="/login">Admin</span>
-    <a href class="nav-link" (click)="logout()">LogOut</a>
+	<ul class="nav navbar-nav navbar-right">
+		<li *ngIf="!isLogged"><a routerLink="/login" class="text-white">Admin</a></li>
+		<li *ngIf="isLogged"><a routerLink="/dashboard"><span class="glyphicon glyphicon-log-in"></span> Dashboard</a></li>
+		<li *ngIf="isLogged"><a href="#" (click)="logout()">LogOut </a></li>
+	  </ul>
+	<!-- <span *ngIf="!isLogged" id="loggin" class="text-white font-weight-bold" routerLink="/login">Admin {{isLogged}}</span>
+	<span *ngIf="isLogged" id="loggin" class="text-white font-weight-bold" routerLink="/dashboard">Dashboard {{isLogged}}</span>
+    <a href class="nav-link" (click)="logout()">LogOut</a> -->
 </header>
 
 

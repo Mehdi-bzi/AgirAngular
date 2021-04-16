@@ -39,8 +39,13 @@ export class LoginViewComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         // this.reloadPage();
-        this.router.navigate(['dashboard']);
+        // this.router.navigate(['dashboard']);
+
+        //on utilise window location plutot que router car sinon le header 
+        //ne prend pas en compte le statut logged
+        window.location.href = "/dashboard";
         console.log("alors>"+this.roles);
+
       },
       err => {
         this.errorMessage = err.error.message;

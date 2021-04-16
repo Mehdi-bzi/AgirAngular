@@ -12,3 +12,9 @@
     background:rgb(235, 235, 235);
 
 }
+
+.pages{
+    display:flex;
+    justify-content: center;
+}
+

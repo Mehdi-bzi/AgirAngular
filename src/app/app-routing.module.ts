@@ -1,3 +1,4 @@
+import { FormationEditViewComponent } from './views/formation-edit-view/formation-edit-view.component';
 import { FormationViewComponent } from './views/formation-view/formation-view.component';
 import { FormationNewViewComponent } from './views/formation-new-view/formation-new-view.component';
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'themes/new', component: ThemeNewViewComponent},
   {path: 'themes/edit/:id', component: ThemeEditViewComponent},
   {path: 'formations/new', component: FormationNewViewComponent},
+  {path: 'formations/edit/:id', component: FormationEditViewComponent},
   {path: 'themes', component: ThemeViewComponent},
   {path: 'formations', component: FormationViewComponent},
 ];
