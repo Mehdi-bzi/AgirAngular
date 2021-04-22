@@ -2,6 +2,7 @@ import { TokenStorageService } from './../../services/token-storage-service/toke
 import { AuthService } from './../../services/auth-service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-view.component.css']
 })
 export class LoginViewComponent implements OnInit {
+
 
   form: any = {};
   isLoggedIn = false;
@@ -43,6 +45,7 @@ export class LoginViewComponent implements OnInit {
 
         //on utilise window location plutot que router car sinon le header 
         //ne prend pas en compte le statut logged
+
         window.location.href = "/dashboard";
         console.log("alors>"+this.roles);
 

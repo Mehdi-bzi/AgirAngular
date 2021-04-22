@@ -45,11 +45,11 @@ export class HomeViewComponent implements OnInit {
 
   }
 
-  displayFormation(valueTheme){
-      document.getElementById("secondColumn").innerHTML = "";
-      document.getElementById("secondColumn").innerHTML = `<img style="opacity: 0.5;" class="img-fluid mx-auto d-block" src="../../../assets/css/img/${valueTheme}.jpg">`;
-      this.formationsToDisplay = this.formations.filter(f=>f.theme == "/api/themes/"+valueTheme)
-  }
+  // displayFormation(valueTheme){
+  //     document.getElementById("secondColumn").innerHTML = "";
+  //     document.getElementById("secondColumn").innerHTML = `<img style="opacity: 0.5;" class="img-fluid mx-auto d-block" src="../../../assets/css/img/${valueTheme}.jpg">`;
+  //     this.formationsToDisplay = this.formations.filter(f=>f.theme == "/api/themes/"+valueTheme)
+  // }
 
 //   displayFormation(valueTheme){
 //     document.getElementById("secondColumn").innerHTML = "";
@@ -60,10 +60,11 @@ export class HomeViewComponent implements OnInit {
 //     }
 // }
 
-//   displayFormation(valueTheme){
-//     document.getElementById("secondColumn").innerHTML = "";
-//     this.formationsToDisplay = this.formations.filter(f=>f.theme == "/api/themes/"+valueTheme)
-// }
+  displayFormation(valueTheme){
+    document.getElementById("secondColumn").innerHTML = "";
+    document.getElementById("secondColumn").innerHTML = ` <p>Sélectionnez une formation du thème ${valueTheme}<p>`;
+    this.formationsToDisplay = this.formations.filter(f=>f.theme.name == valueTheme)
+}
 
 //   displayFormation(valueTheme){
 //     console.log(this.formations[0].theme);
@@ -71,18 +72,16 @@ export class HomeViewComponent implements OnInit {
 
   displayContentFormation(formation){
     this.active = false;
-    console.log(formation.theme.length-1)
-    //on recupere l'id du thème car il n'y en a moins de 10 apres on changera l'IRI en ID dans Api Platform
-    var idThemePhoto = formation.theme;
+    var idThemePhoto = formation.theme.id;
     document.getElementById("secondColumn").innerHTML = 
     `<div class="card text-center">
     <div class="card-header">
-    Détails de la formation du thème ${idThemePhoto.substr(idThemePhoto.length-1)}
+    Détails de la formation du thème ${idThemePhoto}
     </div>
    
     <div class="card-body">
       <h5 class="card-title">${formation.name}</h5>
-        <img class="img-fluid" width="300" p-2" src="../../../assets/css/img/${idThemePhoto.substr(idThemePhoto.length-1)}.jpg">
+        <img class="img-fluid" width="300" p-2" src="../../../assets/css/img/${idThemePhoto}.jpg">
       <h5 class="h-6  text-secondary">Description :</h5>
       <p class="card-text">${formation.description}</p>
       <hr/>

@@ -85,32 +85,7 @@
                                 {{theme.name}}
                             </option>
                         </select>
-
-
-                        <!-- <div class="element">
-                            <label class="field-label">Formations</label>
-                            <div class="flex-container">
-                              <div *ngFor="let f of formationsToDisplay; let i=index;"
-                                class="flex-container  align-center multi-checkbox">
-                                <input type="checkbox" [formControlName]="formation" (change)="getSelectedHobbies(hobby, myhobbies[i].name);">
-                                {{f.name}}
-                              </div>
-                            </div>
-                          </div> -->
-
-
-
-
-                        <!-- <div class="form-check form-check-inline" formArrayName="formation">
-                            <div *ngFor="let f of formationsToDisplay; let i = index"></div>
-                            <input 
-                            type="checkbox"
-                            [formControlName]="i"
-                            *ngFor="let f of formationsToDisplay" 
-                            [value]="'/api/formations/'+f.id" 
-                            [id]="i">
-                            <label class="form-check-label" for="inlineCheckbox1">{{f.name}}</label>
-                        </div>                        -->
+                      
 
                         <button class="btn btn-primary btn-block btn-round mt-4"
                                 [disabled]="newFormationForm.invalid">Ajouter

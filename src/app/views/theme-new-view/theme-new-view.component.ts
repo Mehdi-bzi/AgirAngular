@@ -46,14 +46,12 @@ export class ThemeNewViewComponent implements OnInit {
     this.newThemeForm = this.fb.group({
       'name': ['', Validators.required],
       'description': ['', Validators.required],
-      // 'formation': this.fb.array(this.formations.map(x => !1))
   });
 
   console.log(this.formationsToDisplay);
   }
 
   onSubmitNewThemeForm() {
-    console.log(this.formationsToDisplay);
     // on transforme l'objet en json avec JSON.stringify pour l'utiliser 
     // dans le themeService pour l'ajouter en BDD
     let themeToAdd = JSON.stringify(this.newThemeForm.value);
