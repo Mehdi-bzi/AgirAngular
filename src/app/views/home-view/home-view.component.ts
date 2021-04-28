@@ -64,11 +64,11 @@ export class HomeViewComponent implements OnInit {
     document.getElementById("secondColumn").innerHTML = "";
     document.getElementById("secondColumn").innerHTML = ` <p>Sélectionnez une formation du thème ${valueTheme}<p>`;
     this.formationsToDisplay = this.formations.filter(f=>f.theme.name == valueTheme)
+    console.log(valueTheme);
+
 }
 
-//   displayFormation(valueTheme){
-//     console.log(this.formations[0].theme);
-// }
+
 
   displayContentFormation(formation){
     this.active = false;

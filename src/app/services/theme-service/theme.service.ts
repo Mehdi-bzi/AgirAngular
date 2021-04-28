@@ -21,7 +21,7 @@ export class ThemeService {
    }
 
   getThemes(){
-    return this.httpClient.get('http://localhost:8000/api/themes.json')
+    return this.httpClient.get(AUTH_API+'api/themes.json')
                           .subscribe(
                             res => {
                               this.themes = res;

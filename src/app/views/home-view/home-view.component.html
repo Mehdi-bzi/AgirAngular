@@ -15,7 +15,7 @@
                                 (change)="displayFormation(homeThemeForm.value.theme)"
                                 >
                             <option value="" selected>Choisir</option>
-                            <!-- <option value="">{{themes[0]}}</option> -->
+                            
                             <option *ngFor="let t of themes" [value]="t.name"
                             >
                                 {{t.name}}

@@ -20,10 +20,10 @@ const routes: Routes = [
   // {path: 'dashboard', canActivate[AuthGuardService] component: HomeViewComponent},
   {path: 'dashboard', canActivate: [AuthGuardService], component: DashboardViewComponent},
 
-  {path: 'themes/new', component: ThemeNewViewComponent},
-  {path: 'themes/edit/:id', component: ThemeEditViewComponent},
-  {path: 'formations/new', component: FormationNewViewComponent},
-  {path: 'formations/edit/:id', component: FormationEditViewComponent},
+  {path: 'themes/new', canActivate: [AuthGuardService], component: ThemeNewViewComponent},
+  {path: 'themes/edit/:id',canActivate: [AuthGuardService], component: ThemeEditViewComponent},
+  {path: 'formations/new',canActivate: [AuthGuardService], component: FormationNewViewComponent},
+  {path: 'formations/edit/:id',canActivate: [AuthGuardService], component: FormationEditViewComponent},
   {path: 'themes', component: ThemeViewComponent},
   {path: 'formations', component: FormationViewComponent},
 ];

@@ -52,7 +52,8 @@ export class FormationNewViewComponent implements OnInit {
     // on transforme l'objet en json avec JSON.stringify pour l'utiliser 
     // dans le themeService pour l'ajouter en BDD
     let formationToAdd = JSON.stringify(this.newFormationForm.value);
-    console.log("test1"+this.newFormationForm.value)
+    console.log("test1"+this.newFormationForm.value);
+    console.log("test1,5"+formationToAdd);
     this.formationService.addFormation(formationToAdd)
         .subscribe(
           data => {
